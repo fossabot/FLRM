@@ -1,0 +1,13 @@
+#!bin/bash
+jsdoc -c jsdoc.json .
+rm -rf pkg.t*
+sleep 5
+ls
+tar -czvf pkg.tar.gz out 
+tar -czvf pkg.tgz out
+sleep 0.4
+rm -rf out
+sleep 5
+ls
+echo "complete"
+exit
