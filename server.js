@@ -28,7 +28,7 @@ module.exports.modulator = kwargs => {
       }
       var $1 = kwargs[1];
       if ($1[i].contains("function plugin_enabled")) {
-        plugin[i] = "";
+        plugin[i] = "var NULL_92856 () => {";
       }
       if ($1[i].contains("")) {
         $1[i].replace("", "");
@@ -84,11 +84,42 @@ global.entry = {
     console.warn(
       `[${resolve(
         __filename
-      )}]: installing global enviroment variables, these variables can possibly overwrite uuid/the glitxh.com/me service`
+      )}]: installing global enviroment variables, these variables can possibly overwrite online code editor service envs`
     );
-    process.env.forge_uuid = uuidv4(process.env._);
+    process.env.forge_uuid = uuidv4(process.env.NODE_PATH);
   }
 };
+/**
+*@function download-global-plugins
+*@returns null
+*@example require('forge-remote-manager').download_global_plugins() //sets default data, and exports all file paths
+* the download global plugins function does not actually download all plugins that FLRM is compatible with, it just sets the defaults and paths to all files the plugin is used in 
+* the defaults are set as listed and are set in the exact order listed:
+* forge_uuid
+* plugin_list_uuid *
+* tarball_ignore *
+* tarball_uuid *
+* plugin_path *
+*
+* what each env specifies:
+*
+* forge_uuid:
+*  the uuid customized to be used in your project
+*
+* plugin_list_uuid:
+*  the uuid based on the plugins installed
+*
+* tarball_ignore:
+*  tarball path to move the tarball to for deletion
+*
+* tarball_uuid:
+*  the uuid based on the tarball ignore path, your forge uuid, and your plugin list uuid
+*
+* plugin_path:
+*  the path to all of your plugin folders in node_modules, will be specified when it is set 
+*
+* * env not yet implemented due to no need at the moment
+*/
 module.exports.download_global_plugins = function() {
   global.entry.export_env();
 };

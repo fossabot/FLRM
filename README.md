@@ -48,4 +48,5 @@ cli_installation.js:
 
 ```js
 require('forge-remote-manager').syncPlugin('webpack').CliInstalled(true).config({ production:'webpack.production.js', dev:'webpack.dev.js', srvr:false })"
+//webpack.dev.js is an automated file, provided by the packages installed & retrieved by the package query through the remote manager
 ```

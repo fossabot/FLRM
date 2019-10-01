@@ -1,13 +1,7 @@
 #!bin/bash
+#only works in glitch.com or, where this is produced at
 jsdoc -c jsdoc.json .
-rm -rf pkg.t*
-sleep 5
-ls
-tar -czvf pkg.tar.gz out 
-tar -czvf pkg.tgz out
-sleep 0.4
+cp out docs
 rm -rf out
-sleep 5
 ls
-echo "complete"
-exit
+refresh
