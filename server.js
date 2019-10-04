@@ -1,6 +1,3 @@
-/**
-*@module main
-*/
 var { resolve, parse } = require("path");
 var { table } = require("table");
 var ora = require("ora");
@@ -10,6 +7,7 @@ var nodep = require("no-deprecation");
 var exe = require("fs").exists;
 var exists = nodep(exe);
 var uuidv4 = require("uuid/v4");
+var { getRemotePackages } = require('npm-node-utils')
 /**
 * Modulator for the plugin modification
 *@param {array} kwargs the argument array
@@ -59,7 +57,7 @@ function Array_0_null(input) {
  */
 module.exports.Array_checkr = Array_0_null;
 
-global.entry = {
+module.exports.entry = {
   hx: function(d) {
     this.hex = function() {
       return d.toString("hex");
@@ -90,6 +88,13 @@ global.entry = {
       )}]: installing global enviroment variables, these variables can possibly overwrite online code editor service envs`
     );
     process.env.forge_uuid = uuidv4(process.env.NODE_PATH);
+    var plugins=  getRemotePackages({
+      search:'jtech'
+    });
+    var plugins = plugins.map(gg => {
+      return gg.name;
+    });
+    process.env.plugin_list_uuid = uuidv4(plugins.join('--'))
   }
 };
 /**
@@ -100,7 +105,7 @@ global.entry = {
 * the download global plugins function does not actually download all plugins that FLRM is compatible with, it just sets the defaults and paths to all files the plugin is used in 
 * the defaults are set as listed and are set in the exact order listed:
 * forge_uuid
-* plugin_list_uuid *
+* plugin_list_uuid
 * tarball_ignore *
 * tarball_uuid *
 * plugin_path *
@@ -112,6 +117,7 @@ global.entry = {
 *
 * plugin_list_uuid:
 *  the uuid based on the plugins installed
+
 *
 * tarball_ignore:
 *  tarball path to move the tarball to for deletion
@@ -125,5 +131,5 @@ global.entry = {
 * * env not yet implemented due to no need at the moment
 */
 module.exports.download_global_plugins = function() {
-  global.entry.export_env();
+  module.exports.entry.export_env();
 };

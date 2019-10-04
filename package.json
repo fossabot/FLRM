@@ -7,12 +7,12 @@
   "description": "the nodejs remote manager plugin for forge-lance controller/app automation",
   "main": "server.js",
   "scripts": {
-    "start": "node express.js",
+    "start": "",
     "build::KEY": "node DEV.js"
   },
   "dependencies": {
     "chalk": "^2.4.2",
-    "cli-progress": "^3.3.0",
+    "cli-progress": "^3.3.1",
     "cloudconvert": "^1.1.2",
     "express": "^4.17.1",
     "ftp": "^0.3.10",
@@ -31,7 +31,8 @@
     "ora": "^4.0.2",
     "sqlite3": "^4.1.0",
     "table": "^5.4.6",
-    "uuid": "^3.3.3"
+    "uuid": "^3.3.3",
+    "debug": "^4.1.1"
   },
   "engines": {
     "node": "8.x"
