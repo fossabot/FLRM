@@ -7,7 +7,7 @@
   "description": "the nodejs remote manager plugin for forge-lance controller/app automation",
   "main": "server.js",
   "scripts": {
-    "start": "",
+    "start": "bash jsdoc --no-refresh; echo 'done' >> .log",
     "build::KEY": "node DEV.js"
   },
   "dependencies": {
@@ -24,7 +24,7 @@
     "jsdoc": "^3.6.3",
     "mysql": "^2.17.1",
     "no-deprecation": "^1.0.0",
-    "node-gyp": "^5.0.4",
+    "node-gyp": "^5.0.5",
     "npm-check": "^5.9.0",
     "npm-node-utils": "^1.5.5",
     "npm-run-all": "^4.1.5",

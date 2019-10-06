@@ -4,4 +4,10 @@ jsdoc -c jsdoc.json .
 rm -rf ~/docs/out
 cp -r ~/out ~/docs
 rm -rf out
-refresh
+if [ $1 = '--no-refresh' ]
+then
+  exit 0
+else
+  refresh
+  exit 0
+fi

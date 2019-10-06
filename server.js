@@ -105,9 +105,13 @@ module.exports.entry = {
 * the download global plugins function does not actually download all plugins that FLRM is compatible with, it just sets the defaults and paths to all files the plugin is used in 
 * the defaults are set as listed and are set in the exact order listed:
 * forge_uuid
+*
 * plugin_list_uuid
+*
 * tarball_ignore *
+*
 * tarball_uuid *
+*
 * plugin_path *
 *
 * what each env specifies:
