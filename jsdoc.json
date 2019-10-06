@@ -3,7 +3,7 @@
   "recurseDepth": 10,
   "source": {
     "includePattern": ".+\\.js(doc|x|t)?$",
-    "excludePattern": "(^|\\/|\\\\)_"
+    "excludePattern": ""
   },
   "sourceType": "module",
   "tags": {
