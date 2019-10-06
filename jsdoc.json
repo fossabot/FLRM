@@ -3,7 +3,9 @@
   "recurse": true,
   "source": {
     "includePattern": ".+\\.js(doc|x|t)?$",
-    "excludePattern": ""
+    "excludePattern": "",
+    "include":["lib/custom"],
+    "exclude":[]
   },
   "sourceType": "module",
   "tags": {
