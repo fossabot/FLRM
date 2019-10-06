@@ -1,6 +1,6 @@
 #!bin/bash
 #only works in glitch.com or, where this is produced at
-jsdoc -c jsdoc.json .
+jsdoc -c jsdoc.json *
 rm -rf ~/docs/out
 cp -r ~/out ~/docs
 rm -rf out
