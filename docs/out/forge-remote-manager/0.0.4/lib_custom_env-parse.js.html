@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: lib/utils.js</title>
+    <title>JSDoc: Source: lib/custom/env-parse.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: lib/utils.js</h1>
+    <h1 class="page-title">Source: lib/custom/env-parse.js</h1>
 
     
 
@@ -27,56 +27,26 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>/**
-*
-* utils package from NODEJS
+*@function module.exports
+* env parser
+*@param {array} $1 the lines of the file to parse
+*@returns {array} array of declarations
 *@package
 */
-var util = require('util');
-/**
-*
-* no-deprecation by tapu cosmo
-*@package
-*/
-var nodep = require('no-deprecation')
-/**
-*
-* { table } from table by gajus
-*@package
-*/
-var { table } = require('table');
-/**
-*@function get packets
-*@param {array} packet the list of packets to format and get signals from
-*@returns process signal / sql server
-*@package
-*/
-function get_packets(packet = [1,4]){
-  return function () {
-    this.pack;
-    if(!packet[2]){
-      switch(packet[1]){
-        case 4:
-          this.pack = 16;
-          break;
-        case 2:
-          this.pack = 3;
-          break;
-        default:
-          this.pack = 8;
-          break;
-      }
-      this.pack = this.pack / packet[0];
-      return this.pack;
-    }else
-      {
-        return packet[2] + packet[1] / packet[0];
-      };
+module.exports = function ($1 = [ 'NULL' ]){ 
+  if ($1[0] === 'NULL'){
+    return [null];
   }
-}
-
-
-
-module.exports.get_packets = get_packets;</code></pre>
+  var $3 = Array(1e2).fill('__')
+  for (let i = 0; i &lt; $1.length; i++){
+    if($1[i].startsWith('#')){
+      $3[i] = '';
+    }else{
+      $3[i] = `declare -x ${$1[i]}\n`;
+    }
+  }
+  return $3
+}</code></pre>
         </article>
     </section>
 

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: lib/utils.js</title>
+    <title>JSDoc: Source: lib/custom/path.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: lib/utils.js</h1>
+    <h1 class="page-title">Source: lib/custom/path.js</h1>
 
     
 
@@ -26,57 +26,32 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>/**
-*
-* utils package from NODEJS
-*@package
-*/
-var util = require('util');
+            <pre class="prettyprint source linenums"><code>/*
+ **just fancy!
+ */
+let root = __dirname;
+const parse_env = require("./env-parse.js");
+const { readFileSync } = require("fs");
 /**
-*
-* no-deprecation by tapu cosmo
-*@package
-*/
-var nodep = require('no-deprecation')
-/**
-*
-* { table } from table by gajus
-*@package
-*/
-var { table } = require('table');
-/**
-*@function get packets
-*@param {array} packet the list of packets to format and get signals from
-*@returns process signal / sql server
-*@package
-*/
-function get_packets(packet = [1,4]){
-  return function () {
-    this.pack;
-    if(!packet[2]){
-      switch(packet[1]){
-        case 4:
-          this.pack = 16;
-          break;
-        case 2:
-          this.pack = 3;
-          break;
-        default:
-          this.pack = 8;
-          break;
-      }
-      this.pack = this.pack / packet[0];
-      return this.pack;
-    }else
-      {
-        return packet[2] + packet[1] / packet[0];
-      };
-  }
+ *@function __env
+ *@package
+ */
+function __env() {
+  /**
+   *@function __env.custom
+   *@package
+   */
+  this.custom = function(path) {
+    var z = readFileSync(path);
+    var x = parse_env(z);
+    x = x.forEach(value => {
+      if (value !== "") {
+        return value;
+      } else return;
+    });
+  };
 }
-
-
-
-module.exports.get_packets = get_packets;</code></pre>
+</code></pre>
         </article>
     </section>
 
