@@ -4,8 +4,8 @@
   "source": {
     "includePattern": ".+\\.js(doc|x|t)?$",
     "excludePattern": "",
-    "include":["lib/custom"],
-    "exclude":[]
+    "include": ["lib/custom","lib/build"],
+    "exclude": ["lib/jtech-input"]
   },
   "sourceType": "module",
   "tags": {

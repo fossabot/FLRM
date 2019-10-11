@@ -1,8 +1,10 @@
 #!bin/bash
 #only works in glitch.com or, where this is produced at
 jsdoc -c jsdoc.json *
+rm -rf ~/docs/0.*
 rm -rf ~/docs/out
-cp -r ~/out ~/docs
+rm -rf ~/docs/forge*
+cp -r ~/out/forge-remote-manager/0.0.5-beta ~/docs
 rm -rf out
 if [ $1 = '--no-refresh' ]
 then
