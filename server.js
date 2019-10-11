@@ -7,7 +7,7 @@ var nodep = require("no-deprecation");
 var exe = require("fs").exists;
 var exists = nodep(exe);
 var uuidv4 = require("uuid/v4");
-var { getRemotePackages } = require('npm-node-utils')
+var { getRemotePackages } = require("npm-node-utils");
 /**
 * Modulator for the plugin modification
 *@param {array} kwargs the argument array
@@ -88,13 +88,16 @@ module.exports.entry = {
       )}]: installing global enviroment variables, these variables can possibly overwrite online code editor service envs`
     );
     process.env.forge_uuid = uuidv4(process.env.NODE_PATH);
-    var plugins=  getRemotePackages({
-      search:'jtech'
+    var plugins = getRemotePackages({
+      search: "jtech"
     });
     var plugins = plugins.map(gg => {
       return gg.name;
     });
-    process.env.plugin_list_uuid = uuidv4(plugins.join('--'))
+    process.env.plugin_list_uuid = uuidv4(plugins.join("--"));
+  },
+  sqlite_env() {
+    var __cp = require('')
   }
 };
 /**
@@ -136,4 +139,8 @@ module.exports.entry = {
 */
 module.exports.download_global_plugins = function() {
   module.exports.entry.export_env();
+};
+
+module.exports.webpack = class {
+  constructor(nest = [], parent = "webpack-cli::*", child = []) {}
 };
