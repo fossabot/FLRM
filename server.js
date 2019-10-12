@@ -97,7 +97,7 @@ module.exports.entry = {
     process.env.plugin_list_uuid = uuidv4(plugins.join("--"));
   },
   sqlite_env() {
-    var __cp = require('')
+    var __cp = require("");
   }
 };
 /**
@@ -140,7 +140,14 @@ module.exports.entry = {
 module.exports.download_global_plugins = function() {
   module.exports.entry.export_env();
 };
-
+/**
+ * FLRM.webpack
+ *@class
+ */
 module.exports.webpack = class {
-  constructor(nest = [], parent = "webpack-cli::*", child = []) {}
+  constructor(nest = [], parent = "webpack-cli::*", child = []) {
+    prompt([{
+      
+    }])
+  }
 };
